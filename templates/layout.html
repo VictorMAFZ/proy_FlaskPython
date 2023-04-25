@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black-List Consalud</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"
+      rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/J5f5z82fk5Mf5y8bgf1hVCi2l5/rBbrYw/w/J5" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-tQF/3w8l/8/3erh9+9bFm1LjLg8l/cGt6kpX/J6TzTnDp8npF1/9yIVt7iu54mOt" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+      function confirmarEliminacion() {
+        return confirm('¿Estás seguro de que deseas eliminar este registro?');
+      }
+    </script>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 bg-body rounded">
+      <div class="container">
+        <div class="img-container" style="margin-right: 20px;">
+          <a class="navbar-brand mr-auto" href="/index">
+            <img src="{{ url_for('static', filename='img/highresolution.png') }}" alt="" height="50">
+          </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mx-auto" id="navbarNav">
+          <ul class="navbar-nav custom-nav" >
+            <li class="nav-item">
+              <a class="nav-link" href="/registrar_bl">Agregar Registro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/lista_bl">Listar Registro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/buscar_bl">Buscar Registro</a>
+            </li>
+          </ul>
+          <div class="logout-container" style="margin-left: auto;">
+            <button type="button" class="btn-logout" onclick="logout()">Cerrar sesión</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div>
+      {% block body %}
+      {% endblock %}
+    </div>
+
+    <script>
+      function logout() {
+      // Código para cerrar sesión y redirigir al usuario a la página de inicio de sesión
+      window.location.href = "/logout";
+      }
+    </script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/J5f5z82fk5Mf5y8bgf1hVCi2l5/rBbrYw/w/J5" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-tQF/3w8l/8/3erh9+9bFm1LjLg8l/cGt6kpX/J6TzTnDp8npF1/9yIVt7iu54mOt" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+kD4Ck5BdPtF+to8xMp9mnI8X" crossorigin="anonymous"></script>
+
+  </body>
+</html>

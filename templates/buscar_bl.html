@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<head>
+  <title>Black List</title>
+  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<div class="container shadow-sm p-3 mb-5 bg-body rounded">
+  <table class="table table-bordered table-striped">
+    <thead class="thead-warning">
+      <tr>
+        <th>RUT</th>
+        <th>DV</th>
+        <th>Afiliado</th>
+        <th>Prestador</th>
+        <th>Modificar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in filtered_rows %}
+      <tr>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+        <td>{{ row[3] }}</td>
+        <td>{{ row[4] }}</td>
+        <td>
+          <a href="{{ url_for('modificar_view', rut=row[1], dv=row[2]) }}" class="btn">Modificar</a>
+        </td>
+        <td>
+          <form action="{{ url_for('eliminar', rut=row[1]) }}" method="post">
+            <button type="submit" class="btn btn-danger" onclick="return confirmarEliminacion();">Eliminar</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
+  <div class="registration-container shadow p-3 mb-5 bg-body rounded">
+    <form method="POST">
+      <div class="form-group">
+        <div>
+          <h1>Buscar registro</h1>
+        </div>
+        <input type="text" id="buscar" name="busqueda" placeholder="Buscar registro por Rut" required
+          class="form-control">
+        <input type="text" id="buscar_dv" name="busqueda_dv" placeholder="Digito Verificador" required
+          class="form-control mt-2">
+        <hr>
+        <hr>
+        <div>
+          <button type="submit" class="btn btn-primary mt-2 btn-block">Buscar</button>
+        </div>
+        <div>
+          <a href="/buscar_bl" class="btn btn-secondary mt-2 btn-block">Limpiar</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+  integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/X+Hkz5CtAOnt8mz8bi7D45E9Jg9q4D+3f4uXC7" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+  integrity="sha384-oBqDVmMz4fnFO9gybBud7blK/4N4sD7iC//Jf2o/7GzS/9nt6U7z9X9A6Rrq1NoD" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/js/bootstrap.min.js"
+  integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/X+Hkz5CtAOnt8mz8bi7D45E9Jg9q4D+3f4uXC7" crossorigin="anonymous"></script>
+{% endblock %}

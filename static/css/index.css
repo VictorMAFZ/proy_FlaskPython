@@ -1,0 +1,60 @@
+.index-container {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.tags-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tags-container > div {
+  flex: 1;
+  margin: 0 10px;
+  background-color: #00afaa;
+  color: #ffffff;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-registro,
+.icon-editar,
+.icon-lista {
+  height: 80px;
+}
+
+.custom-link1 {
+  margin-top: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.tags-container > div a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.tags-container > div a.custom-link1 {
+  color: inherit;
+  text-decoration: none;
+}
+
+.tag1-container img,
+.tag2-container img,
+.tag3-container img {
+  margin-bottom: 10px;
+}
+
+.tag1-container span,
+.tag2-container span,
+.tag3-container span {
+  display: block;
+}
+
+.custom-link1 {
+  margin-top: 10px;
+}

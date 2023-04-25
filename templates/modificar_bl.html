@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<head>
+    <title>Modificar Registro en Black List</title>
+    <script>
+        function confirmarModificacion() {
+            return confirm('¿Estás seguro de que deseas modificar este registro?');
+        }
+    </script>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="registration-container shadow p-3 mb-5 bg-body rounded">
+        <h1 class="text-center mb-4">Modificar Registro en Black List</h1>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="rut">RUT</label>
+                <input type="text" name="rut" id="rut" value="{{ registro[1] }}" class="form-control" required readonly>
+            </div>
+            <div class="form-group">
+                <label for="dv">DV</label>
+                <input type="text" name="dv" id="dv" value="{{ registro[2] }}" class="form-control" required readonly>
+                <hr>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" name="afiliado" id="afiliado" {% if registro[3] %}checked{% endif %}>
+                <label for="afiliado">¿Eres Afiliado?</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" name="prestador" id="prestador" {% if registro[4] %}checked{% endif %}>
+                <label for="prestador">¿Eres Prestador?</label>
+            </div>
+            <div class="mt-4">
+                <input type="submit" class="btn btn-warning btn-block" value="Modificar Registro" onclick="return confirmarModificacion();">
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1PiO2m81"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+{% endblock %}
+

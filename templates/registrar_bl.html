@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<head>
+  <title>Registro en Black List</title>
+  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="registration-container shadow p-3 mb-5 bg-body rounded">
+    <h1>Registro en Black List</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form method="post" action="{{ url_for('registrar_view') }}">
+      <div class="form-group">
+        <label for="rut">RUT:</label>
+        <input type="number" name="rut" id="rut" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="dv">DV:</label>
+        <input type="text" name="dv" id="dv" class="form-control" required>
+        <hr>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" name="afiliado" id="afiliado">
+        <label for="afiliado">¿Es afiliado?</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" name="prestador" id="prestador">
+        <label for="prestador">¿Es prestador?</label>
+      </div>
+      <div class="mt-4">
+        <input type="submit" value="Registrar" class="btn btn-success btn-block">
+      </div>
+    </form>
+  </div>
+
+</body>
+{% endblock %}

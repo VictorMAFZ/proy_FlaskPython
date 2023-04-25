@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #505050;
+}
+
+h2, h3, h4, h5, h6, label, input[type="text"], input[type="password"], button {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #505050;
+}
+
+.login_container {
+  display: flex;
+  height: 100vh;
+}
+
+.login_container .left-container {
+  width: 50%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_container .logo-container {
+  margin-top: 20px;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 0 auto;
+}
+
+.logo-container img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+h1 {
+  margin-top: 0;
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #505050;
+}
+
+form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"], input[type="password"], button {
+  width: 100%;
+  max-width: 400px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border: 1px solid #d0d0d0;
+}
+
+button {
+  background-color: #00afaa;
+  color: white;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+button:hover {
+  background-color: #005d58;
+}
+
+.login_container .right-container {
+  flex: 1;
+  background-color: #00afaa;
+  border-bottom-left-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.icon-container {
+  position: relative;
+}
+
+.icon-registro,
+.icon-lista-negra {
+  width: 120px;
+  height: 120px;
+  margin-right: 20px;
+}
+
+.icon-busqueda,
+.icon-lista {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.icon-registro {
+  transform: rotate(-10deg);
+  top: -10px;
+  left: -10px;
+  margin-right: 30px;
+}
+
+.icon-lista-negra {
+  transform: rotate(10deg);
+  bottom: -10px;
+  right: -10px;
+  margin-right: 30px;
+}
+
+.icon-busqueda {
+  transform: rotate(5deg);
+  top: 20px;
+  left: 20px;
+  margin-right: 20px;
+}
+
+.icon-lista {
+  transform: rotate(-5deg);
+  bottom: 20px;
+  right: 20px;
+  margin-right: 20px;
+}
+

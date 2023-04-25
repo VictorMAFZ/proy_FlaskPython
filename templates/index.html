@@ -1,0 +1,50 @@
+<head>
+  <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet" type="text/css">
+</head>
+{% extends "layout.html" %}
+
+{% block body %}
+
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+  {% endif %}
+  {% endwith %}
+  <div class="index-container">
+    <h1>Bienvenido a Crud</h1>
+    <h1>Black-list Consalud</h1>
+    <HR>
+    </HR>
+    <p>Es una aplicación que permita realizar ingreso, egreso, edición, y
+      listado de filas en la tabla blacklist del sistema de reembolso.</p>
+    <hr>
+    <p>¿Qué deseas hacer?</p>
+    <div class="tags-container">
+      <div class="tag1-container">
+        <a href="{{ url_for('registrar_view') }}">
+          <img src="{{ url_for('static', filename='img/icons/anadir.png') }}" alt="icono de registro" class="icon-registro">
+          <span>Registrar RUT en la lista negra</span>
+        </a>
+      </div>
+      <div class="tag2-container">
+        <a href="{{ url_for('buscar_bl') }}">
+          <img src="{{ url_for('static', filename='img/icons/editar.png') }}" alt="icono de edicion" class="icon-editar">
+          <span>Editar un registro</span>
+        </a>
+      </div>
+      <div class="tag3-container">
+        <a href="{{ url_for('lista_bl') }}">
+          <img src="{{ url_for('static', filename='img/icons/portapapeles.png') }}" alt="icono de lista" class="icon-lista">
+          <span>Mostrar todos los registros</span>
+        </a>
+      </div>
+    </div>
+    <div class="version">v1.0</div>
+  </div>
+</body>
+{% endblock %}

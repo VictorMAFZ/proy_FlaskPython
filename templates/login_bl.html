@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de inicio de sesión</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="{{ url_for('static', filename='css/login_bl.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <div class="login_container">
+    <div class="left-container">
+      <div class="logo-container">
+        <img src="{{ url_for('static', filename='img/highresolution.png') }}" alt="logo" class="logo">
+      </div>
+      <div class="form-container">
+        <h1>Ingresa a Consalud Lista Negra</h1>
+        <form action="" method="POST">
+          <label for="username">Usuario</label>
+          <input type="text" id="username" name="usuario">
+          <label for="password">Clave</label>
+          <input type="password" id="password" name="password">
+          <button type="submit">Ingresar</button>
+        </form>
+      </div>
+    </div>
+    <div class="right-container">
+      <div class="icon-group">
+        <div class="icon-container">
+          <img src="{{ url_for('static', filename='img/icons/anadir.png') }}" alt="icono de registro"
+            class="icon-registro">
+        </div>
+        <div class="icon-container">
+          <img src="{{ url_for('static', filename='img/icons/buscar.png') }}" alt="icono de búsqueda"
+            class="icon-busqueda">
+        </div>
+      </div>
+      <div class="icon-group">
+        <div class="icon-container">
+          <img src="{{ url_for('static', filename='img/icons/lista-de-verificacion.png') }}" alt="icono de lista"
+            class="icon-lista">
+        </div>
+        <div class="icon-container">
+          <img src="{{ url_for('static', filename='img/icons/lista-negra.png') }}" alt="icono de lista negra"
+            class="icon-lista-negra">
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal -->
+  <div class="modal" id="unauthorizedModal" tabindex="-1" role="dialog" aria-labelledby="unauthorizedModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="unauthorizedModalLabel">Acceso no autorizado</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Debes iniciar sesión para acceder a esta página.</p> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Script -->
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('unauthorized')) {
+      $('#unauthorizedModal').modal('show');
+    }
+  </script>
+
+</body>
+</html>
